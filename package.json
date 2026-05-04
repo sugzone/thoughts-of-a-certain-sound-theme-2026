@@ -216,5 +216,9 @@
             "@tryghost:theme",
             "github>TryGhost/Themes:packages/theme-translations/renovate-config"
         ]
+    },
+    "dependencies": {
+        "ghost-cli": "^1.29.2",
+        "global": "^4.4.0"
     }
 }
