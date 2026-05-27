@@ -1,3 +1,5 @@
+ghost local dev workflow: [https://stackingjones.com/ghost-local-dev-workflow/](https://stackingjones.com/ghost-local-dev-workflow/)
+
 # Source
 
 The default theme for [Ghost](http://github.com/tryghost/ghost/). This is the latest development version of Source! If you're just looking to download the latest release, head over to the [releases](https://github.com/TryGhost/Source/releases) page.
