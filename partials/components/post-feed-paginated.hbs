@@ -1,0 +1,66 @@
+{{!--
+    Reusable paginated post feed.
+    Uses the page's native `posts` and `pagination` context — works on any
+    collection or channel page (archive, tag, author, etc.)
+--}}
+<section class="gh-feed gh-outer" aria-label="Posts">
+    <div class="gh-feed-inner gh-inner">
+
+        {{#foreach posts}}
+        <article class="gh-feed-post" aria-labelledby="gh-fp-title-{{@index}}">
+
+            {{#if feature_image}}
+                <figure class="gh-feed-post-figure">
+                    <img
+                        class="gh-feed-post-image"
+                        srcset="{{img_url feature_image size="xs" format="webp"}} 160w,
+                                {{img_url feature_image size="s" format="webp"}} 320w"
+                        sizes="(max-width: 767px) 30vw, 15vw"
+                        src="{{img_url feature_image size="s"}}"
+                        alt="{{#if feature_image_alt}}{{feature_image_alt}}{{else}}{{title}}{{/if}}"
+                        loading="lazy"
+                        width="320"
+                        height="213"
+                    >
+                </figure>
+            {{/if}}
+
+            <div class="gh-feed-post-content">
+
+                <div class="gh-feed-post-meta">
+                    {{#if primary_tag}}
+                        <span class="gh-feed-post-tag">{{primary_tag.name}}</span>
+                    {{/if}}
+                    <time class="gh-feed-post-date" datetime="{{date format="YYYY-MM-DD"}}">
+                        {{date format="DD MMM YYYY"}}
+                    </time>
+                    {{#if primary_author}}
+                        <span class="gh-feed-post-author">{{primary_author.name}}</span>
+                    {{/if}}
+                </div>
+
+                <h2 class="gh-feed-post-title is-title" id="gh-fp-title-{{@index}}">
+                    <a href="{{url}}">{{title}}</a>
+                </h2>
+
+                {{#if custom_excerpt}}
+                    <p class="gh-feed-post-excerpt is-body">{{custom_excerpt}}</p>
+                {{else}}
+                    {{#if excerpt}}
+                        <p class="gh-feed-post-excerpt is-body">{{excerpt}}</p>
+                    {{/if}}
+                {{/if}}
+
+                <a class="gh-feed-post-readmore" href="{{url}}" aria-label="Read more: {{title}}">Read more</a>
+
+            </div>
+
+        </article>
+        {{/foreach}}
+
+        {{#match pagination.pages ">" 1}}
+            {{pagination}}
+        {{/match}}
+
+    </div>
+</section>

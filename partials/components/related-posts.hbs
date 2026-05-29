@@ -1,0 +1,59 @@
+{{#if post.primary_tag}}
+{{#get "posts" filter="tag:{{post.primary_tag.slug}}+id:-{{post.id}}" limit="4" as |related|}}
+{{#if related}}
+<section class="gh-related-posts gh-outer" aria-labelledby="gh-related-posts-heading">
+    <div class="gh-related-posts-inner gh-inner">
+
+        <h2 class="gh-related-posts-heading is-title" id="gh-related-posts-heading">Related</h2>
+
+        <div class="gh-related-posts-feed">
+            {{#foreach related}}
+            <article class="gh-related-post-item" aria-labelledby="gh-related-post-title-{{@index}}">
+
+                {{#if primary_tag}}
+                    <p class="gh-related-post-tag">{{primary_tag.name}}</p>
+                {{/if}}
+
+                {{#if feature_image}}
+                    <figure class="gh-related-post-figure">
+                        <img
+                            class="gh-related-post-image"
+                            srcset="{{img_url feature_image size="xs" format="webp"}} 160w,
+                                    {{img_url feature_image size="s" format="webp"}} 320w,
+                                    {{img_url feature_image size="m" format="webp"}} 600w,
+                                    {{img_url feature_image size="l" format="webp"}} 960w"
+                            sizes="(max-width: 767px) 100vw, 33vw"
+                            src="{{img_url feature_image size="m"}}"
+                            alt="{{#if feature_image_alt}}{{feature_image_alt}}{{else}}{{title}}{{/if}}"
+                            loading="lazy"
+                            width="600"
+                            height="400"
+                        >
+                    </figure>
+                {{/if}}
+
+                <h3 class="gh-related-post-title is-title" id="gh-related-post-title-{{@index}}">
+                    <a href="{{url}}">{{title}}</a>
+                </h3>
+
+                <time class="gh-related-post-date" datetime="{{date format="YYYY-MM-DD"}}">
+                    {{date format="DD MMM YYYY"}}
+                </time>
+
+                {{#if custom_excerpt}}
+                    <p class="gh-related-post-excerpt is-body">{{custom_excerpt}}</p>
+                {{else}}
+                    {{#if excerpt}}
+                        <p class="gh-related-post-excerpt is-body">{{excerpt}}</p>
+                    {{/if}}
+                {{/if}}
+
+            </article>
+            {{/foreach}}
+        </div>
+
+    </div>
+</section>
+{{/if}}
+{{/get}}
+{{/if}}

@@ -1,0 +1,17 @@
+<nav class="gh-pagination" aria-label="Page navigation">
+
+    {{#if prev}}
+        <a class="gh-pagination-item gh-pagination-prev" href="{{page_url prev}}" aria-label="Go to page {{prev}}">← Newer</a>
+    {{else}}
+        <span class="gh-pagination-item gh-pagination-prev is-disabled" aria-hidden="true">← Newer</span>
+    {{/if}}
+
+    <span class="gh-pagination-item gh-pagination-info">Page {{page}} of {{pages}}</span>
+
+    {{#if next}}
+        <a class="gh-pagination-item gh-pagination-next" href="{{page_url next}}" aria-label="Go to page {{next}}">Older →</a>
+    {{else}}
+        <span class="gh-pagination-item gh-pagination-next is-disabled" aria-hidden="true">Older →</span>
+    {{/if}}
+
+</nav>

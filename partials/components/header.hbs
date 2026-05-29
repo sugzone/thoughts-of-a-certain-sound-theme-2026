@@ -6,11 +6,7 @@
         {{> "components/header-content"}}
     {{else}}
         {{#match headerStyle "Landing"}}
-            {{#if @site.members_enabled}}
-                {{#unless @member}}
-                    {{> "components/header-content"}}
-                {{/unless}}
-            {{/if}}
+            {{> "components/latest-post"}}
         {{else}}
             {{> "components/header-content"}}
         {{/match}}

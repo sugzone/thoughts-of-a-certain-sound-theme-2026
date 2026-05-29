@@ -14,8 +14,12 @@ production stylesheet in assets/built/screen.css
   6.2. Navigation layouts
   6.3. Dropdown menu
   6.4. Mobile menu
-7. Card
-8. Header
+7. Latest post
+  7.1. Post card group
+  7.2. Recent post list
+  7.3. Related posts
+8. Card
+9. Header
   8.1. Magazine layout
   8.2. Highlight layout
   8.3. Classic layout
@@ -38,6 +42,8 @@ production stylesheet in assets/built/screen.css
 17. Comments
 18. Recent posts
 19. Archive
+  19.1. Post feed (paginated)
+  19.2. Pagination
 20. Design settings
 21. Footer
   21.1. Footer styles
@@ -120,7 +126,8 @@ iframe {
 }
 
 input, button, textarea, select {
-    font: inherit;
+    /* font: inherit; */
+    font-family: var(--font-archivo-narrow);
 }
 
 p, h1, h2, h3, h4, h5, h6 {
@@ -168,15 +175,20 @@ a:hover {
     font-weight: 600;
     letter-spacing: -0.004em;
     line-height: 1;
-    color: var(--color-white);
+    color: var(--color-black);
     cursor: pointer;
-    background-color: var(--ghost-accent-color);
-    border: 0;
-    border-radius: 100px;
+    /* background-color: var(--ghost-accent-color); */
+    border: 1px solid var(--color-black);
+    /* border-radius: 100px; */
+    font-family: var(--font-archivo-narrow);
+    font-style: italic;
 }
 
-.gh-button:hover {
+.gh-button:is(:hover,:focus) {
     opacity: 0.95;
+    color: var(--color-secondary-text);
+    background-color: var(--ghost-accent-color);
+    border: 1px solid var(--color-border);
 }
 
 .gh-icon-button {
@@ -367,6 +379,19 @@ body[class*=" gh-font-heading"]:not(.gh-font-heading-fira-sans):not(.gh-font-hea
 /* 5. Layout
 /* ---------------------------------------------------------- */
 
+/* Utility: visually hidden but accessible to screen readers */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
 .gh-viewport {
     position: relative;
     display: flex;
@@ -512,11 +537,17 @@ body[class*=" gh-font-heading"]:not(.gh-font-heading-fira-sans):not(.gh-font-hea
     gap: 20px;
     align-items: center;
     white-space: nowrap;
+    font-family: var(--font-archivo-narrow);
+    font-style: italic;
+    font-weight: 700;
+    text-transform: lowercase;
 }
 
 .gh-navigation-members .gh-button {
     font-size: inherit;
-    font-weight: 600;
+    font-weight: 700;
+    text-transform: lowercase;
+
 }
 
 .gh-search {
@@ -953,7 +984,180 @@ Search                         LOGO                    Login Subscribe
     }
 }
 
-/* 7. Card
+/* 7. Latest Post
+/* ---------------------------------------------------------- */
+
+.gh-latest-post-inner {
+    display: flex;
+    flex-direction: column;
+    /* gap: var(--grid-gap); */
+    align-items: flex-start;
+}
+
+.gh-latest-post-inner-header-row {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    gap: var(--grid-gap);
+    align-items: flex-start;
+    justify-content: space-between;
+    margin-bottom: 0;
+}
+
+.gh-latest-post-inner-body {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    gap: var(--grid-gap);
+    align-items: flex-start;
+    margin-top: 0;
+}
+
+.gh-latest-post-left {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.gh-latest-post-right {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.gh-latest-post-figure {
+    margin: 0;
+}
+
+.gh-latest-post-image {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* 7.1. Post Card Group
+/* ---------------------------------------------------------- */
+
+.gh-post-card-group-inner {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.gh-post-card-group-feed {
+    display: flex;
+    flex-direction: row;
+    gap: var(--grid-gap);
+    align-items: flex-start;
+}
+
+.gh-post-card-group-item {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.gh-post-card-group-figure {
+    margin: 0;
+}
+
+.gh-post-card-group-image {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* 7.2. Recent Post List
+/* ---------------------------------------------------------- */
+
+.gh-recent-post-list-items {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.gh-recent-post-list-item {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.gh-recent-post-list-row {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    gap: var(--grid-gap);
+}
+
+.gh-recent-post-list-content {
+    flex: 1;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.gh-recent-post-list-figure {
+    flex: 0 0 auto;
+    margin: 0;
+}
+
+.gh-recent-post-list-image {
+    width: 120px;
+    height: auto;
+    display: block;
+}
+
+.gh-recent-post-list-divider {
+    margin: 0;
+}
+
+.gh-home-columns-inner {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    gap: var(--grid-gap);
+}
+
+.gh-home-columns-inner > .gh-recent-post-list {
+    flex: 1;
+    min-width: 0;
+}
+
+/* 7.3. Related Posts
+/* ---------------------------------------------------------- */
+
+.gh-related-posts-feed {
+    display: flex;
+    flex-direction: row;
+    gap: var(--grid-gap);
+    align-items: flex-start;
+}
+
+.gh-related-post-item {
+    flex: 1;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.gh-related-post-figure {
+    margin: 0;
+}
+
+.gh-related-post-image {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* 8. Card
 /* ---------------------------------------------------------- */
 
 .gh-card {
@@ -2660,6 +2864,66 @@ figcaption a {
     .author-template .gh-archive-inner {
         flex-direction: column-reverse;
     }
+}
+
+/* 19.1. Post feed (paginated)
+/* ---------------------------------------------------------- */
+
+.gh-feed-inner {
+    display: flex;
+    flex-direction: column;
+    gap: 48px;
+}
+
+.gh-feed-post {
+    display: flex;
+    flex-direction: row;
+    gap: var(--grid-gap);
+    align-items: flex-start;
+}
+
+.gh-feed-post-figure {
+    flex: 0 0 auto;
+    margin: 0;
+}
+
+.gh-feed-post-image {
+    width: 200px;
+    height: auto;
+    display: block;
+}
+
+.gh-feed-post-content {
+    flex: 1;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.gh-feed-post-meta {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 8px 16px;
+    align-items: center;
+}
+
+/* 19.2. Pagination
+/* ---------------------------------------------------------- */
+
+.gh-pagination {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 24px;
+    padding-top: 24px;
+}
+
+.gh-pagination-item.is-disabled {
+    opacity: 0.3;
+    cursor: default;
 }
 
 /* 20. Design settings

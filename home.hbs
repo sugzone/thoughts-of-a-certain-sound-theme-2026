@@ -1,12 +1,18 @@
 {{!< default}}
 {{!-- The tag above means: insert everything in this file into the body of the default.hbs template --}}
 
+{{!-- Visually hidden h1 for screen readers; post and other pages define their own h1 --}}
+<h1 class="sr-only">{{@site.title}}</h1>
+
 {{> "components/header" headerStyle=@custom.header_style}}
 
-{{#match @custom.header_style "!=" "Highlight"}}
-    {{> "components/featured" showFeatured=@custom.show_featured_posts limit=4}}
-{{/match}}
+{{> "components/post-card-group" filter="featured:true"}}
 
-{{> "components/cta"}}
+<div class="gh-home-columns gh-outer">
+    <div class="gh-home-columns-inner gh-inner">
+        {{> "components/recent-post-list" filter="tag:interview" heading="Interviews"}}
+        {{> "components/recent-post-list" filter="tag:essay" heading="Essays"}}
+        {{> "components/recent-post-list" filter="tag:records" heading="Records"}}
+    </div>
+</div>
 
-{{> "components/post-list" feed="home" postFeedStyle=@custom.post_feed_style showTitle=true showSidebar=@custom.show_publication_info_sidebar}}
