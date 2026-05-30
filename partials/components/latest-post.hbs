@@ -1,27 +1,28 @@
 {{#foreach posts limit="1"}}
-<section class="gh-latest-post gh-outer" aria-label="Latest post">
+<section class="gh-outer" aria-label="Latest post">
 
+    <h2 style="display:none;">Newest post</h2>
     <article class="gh-latest-post-inner gh-inner" aria-labelledby="gh-latest-post-title">
         <div class="gh-latest-post-inner-header-row">
-            <time class="gh-latest-post-date" datetime="{{date format="YYYY-MM-DD"}}">
+            <time class="gh-text-post-attributes" datetime="{{date format="YYYY-MM-DD"}}">
                 {{date format="DD MMM YYYY"}}
             </time>
             {{#if primary_tag}}
-                <p class="gh-latest-post-tag">{{primary_tag.name}}</p>
+                <span class="gh-text-post-attributes">{{primary_tag.name}}</span>
             {{/if}}
         </div>
 
         <div class="gh-latest-post-inner-body">
             <div class="gh-latest-post-left">
-                <h2 class="gh-latest-post-title is-title" id="gh-latest-post-title">
+                <h3 class="is-title gh-header-text-tall-upper" id="gh-latest-post-title">
                     <a href="{{url}}">{{title}}</a>
-                </h2>
-                
+                </h3>
+
                 {{#if custom_excerpt}}
-                    <p class="gh-latest-post-excerpt is-body">{{custom_excerpt}}</p>
+                    <p class="is-body">{{custom_excerpt}}</p>
                 {{else}}
                     {{#if excerpt}}
-                        <p class="gh-latest-post-excerpt is-body">{{excerpt}}</p>
+                        <p class="is-body">{{excerpt}}</p>
                     {{/if}}
                 {{/if}}
             </div>

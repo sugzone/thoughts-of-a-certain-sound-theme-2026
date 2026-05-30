@@ -4,11 +4,15 @@
 {{!-- Visually hidden h1 for screen readers; post and other pages define their own h1 --}}
 <h1 class="sr-only">{{@site.title}}</h1>
 
+{{!-- Header hidden for now; restore when needed:
 {{> "components/header" headerStyle=@custom.header_style}}
+--}}
+
+{{> "components/latest-post"}}
 
 {{> "components/post-card-group" filter="featured:true"}}
 
-<div class="gh-home-columns gh-outer">
+<div class="gh-outer">
     <div class="gh-home-columns-inner gh-inner">
         {{> "components/recent-post-list" filter="tag:interview" heading="Interviews"}}
         {{> "components/recent-post-list" filter="tag:essay" heading="Essays"}}

@@ -2,16 +2,16 @@
 {{#get "posts" filter="tag:{{post.primary_tag.slug}}+id:-{{post.id}}" limit="4" as |related|}}
 {{#if related}}
 <section class="gh-related-posts gh-outer" aria-labelledby="gh-related-posts-heading">
-    <div class="gh-related-posts-inner gh-inner">
+    <div class="gh-inner">
 
-        <h2 class="gh-related-posts-heading is-title" id="gh-related-posts-heading">Related</h2>
+        <h2 class="is-title" id="gh-related-posts-heading">Related</h2>
 
         <div class="gh-related-posts-feed">
             {{#foreach related}}
             <article class="gh-related-post-item" aria-labelledby="gh-related-post-title-{{@index}}">
 
                 {{#if primary_tag}}
-                    <p class="gh-related-post-tag">{{primary_tag.name}}</p>
+                    <span>{{primary_tag.name}}</span>
                 {{/if}}
 
                 {{#if feature_image}}
@@ -32,19 +32,19 @@
                     </figure>
                 {{/if}}
 
-                <h3 class="gh-related-post-title is-title" id="gh-related-post-title-{{@index}}">
+                <h3 class="is-title" id="gh-related-post-title-{{@index}}">
                     <a href="{{url}}">{{title}}</a>
                 </h3>
 
-                <time class="gh-related-post-date" datetime="{{date format="YYYY-MM-DD"}}">
+                <time datetime="{{date format="YYYY-MM-DD"}}">
                     {{date format="DD MMM YYYY"}}
                 </time>
 
                 {{#if custom_excerpt}}
-                    <p class="gh-related-post-excerpt is-body">{{custom_excerpt}}</p>
+                    <p class="is-body">{{custom_excerpt}}</p>
                 {{else}}
                     {{#if excerpt}}
-                        <p class="gh-related-post-excerpt is-body">{{excerpt}}</p>
+                        <p class="is-body">{{excerpt}}</p>
                     {{/if}}
                 {{/if}}
 

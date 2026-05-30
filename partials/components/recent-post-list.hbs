@@ -1,9 +1,9 @@
-{{#get "posts" limit="3" filter=filter as |posts|}}
-{{#if posts}}
 <section class="gh-recent-post-list gh-outer" aria-label="{{#if heading}}{{heading}}{{else}}Recent posts{{/if}}">
     {{#if heading}}
-        <h2 class="gh-recent-post-list-heading is-title">{{heading}}</h2>
+        <h2 class="is-title">{{heading}}</h2>
     {{/if}}
+    {{#get "posts" limit="3" filter=filter as |posts|}}
+    {{#if posts}}
     <ol class="gh-recent-post-list-items gh-inner" role="list">
         {{#foreach posts}}
         <li class="gh-recent-post-list-item">
@@ -28,19 +28,10 @@
                 {{/if}}
 
                 <div class="gh-recent-post-list-content">
-                    <h3 class="gh-recent-post-list-title is-title">
-                        <a href="{{url}}">{{title}}</a>
-                    </h3>
-                    <time class="gh-recent-post-list-date" datetime="{{date format="YYYY-MM-DD"}}">
+                    <a class="is-title gh-header-text-tall-upper" href="{{url}}">{{title}}</a>
+                    <time class="gh-text-post-attributes" datetime="{{date format="YYYY-MM-DD"}}">
                         {{date format="DD MMM YYYY"}}
                     </time>
-                    {{#if custom_excerpt}}
-                        <p class="gh-recent-post-list-excerpt is-body">{{custom_excerpt}}</p>
-                    {{else}}
-                        {{#if excerpt}}
-                            <p class="gh-recent-post-list-excerpt is-body">{{excerpt}}</p>
-                        {{/if}}
-                    {{/if}}
                 </div>
             </div>
 
@@ -49,6 +40,6 @@
         </li>
         {{/foreach}}
     </ol>
+    {{/if}}
+    {{/get}}
 </section>
-{{/if}}
-{{/get}}

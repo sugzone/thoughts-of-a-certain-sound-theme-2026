@@ -1,16 +1,16 @@
-{{#get "posts" limit="4" filter=filter as |cards|}}
+{{#get "posts" limit="4" filter=filter include="tags" as |cards|}}
 {{#if cards}}
 <section class="gh-post-card-group gh-outer" aria-labelledby="gh-post-card-group-heading">
     <div class="gh-post-card-group-inner gh-inner">
 
-        <h2 class="gh-post-card-group-heading is-title" id="gh-post-card-group-heading">Featured</h2>
+        <h2 class="is-title gh-header-text-tall-upper" id="gh-post-card-group-heading">Featured</h2>
 
         <div class="gh-post-card-group-feed">
             {{#foreach cards}}
             <article class="gh-post-card-group-item" aria-labelledby="gh-pcg-title-{{@index}}">
 
                 {{#if primary_tag}}
-                    <p class="gh-post-card-group-tag">{{primary_tag.name}}</p>
+                    <span class="gh-post-card-group-tag gh-text-post-attributes">{{primary_tag.name}}</span>
                 {{/if}}
 
                 {{#if feature_image}}
@@ -31,19 +31,19 @@
                     </figure>
                 {{/if}}
 
-                <h3 class="gh-post-card-group-title is-title" id="gh-pcg-title-{{@index}}">
+                <h3 class="is-title gh-header-text-tall-upper" id="gh-pcg-title-{{@index}}">
                     <a href="{{url}}">{{title}}</a>
                 </h3>
 
-                <time class="gh-post-card-group-date" datetime="{{date format="YYYY-MM-DD"}}">
+                <time class="gh-text-post-attributes" datetime="{{date format="YYYY-MM-DD"}}">
                     {{date format="DD MMM YYYY"}}
                 </time>
 
                 {{#if custom_excerpt}}
-                    <p class="gh-post-card-group-excerpt is-body">{{custom_excerpt}}</p>
+                    <p class="is-body">{{custom_excerpt}}</p>
                 {{else}}
                     {{#if excerpt}}
-                        <p class="gh-post-card-group-excerpt is-body">{{excerpt}}</p>
+                        <p class="is-body">{{excerpt}}</p>
                     {{/if}}
                 {{/if}}
 

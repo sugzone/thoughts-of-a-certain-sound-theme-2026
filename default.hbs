@@ -53,7 +53,9 @@
     
     {{> "components/navigation" navigationLayout=@custom.navigation_layout}}
 
-    {{{body}}}
+    <div class="gh-body-outer">
+        {{{body}}}
+    </div>
     
     {{> "components/footer"}}
     

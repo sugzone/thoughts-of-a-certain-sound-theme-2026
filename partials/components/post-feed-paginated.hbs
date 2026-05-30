@@ -29,29 +29,29 @@
 
                 <div class="gh-feed-post-meta">
                     {{#if primary_tag}}
-                        <span class="gh-feed-post-tag">{{primary_tag.name}}</span>
+                        <span>{{primary_tag.name}}</span>
                     {{/if}}
-                    <time class="gh-feed-post-date" datetime="{{date format="YYYY-MM-DD"}}">
+                    <time datetime="{{date format="YYYY-MM-DD"}}">
                         {{date format="DD MMM YYYY"}}
                     </time>
                     {{#if primary_author}}
-                        <span class="gh-feed-post-author">{{primary_author.name}}</span>
+                        <span>{{primary_author.name}}</span>
                     {{/if}}
                 </div>
 
-                <h2 class="gh-feed-post-title is-title" id="gh-fp-title-{{@index}}">
+                <h2 class="is-title" id="gh-fp-title-{{@index}}">
                     <a href="{{url}}">{{title}}</a>
                 </h2>
 
                 {{#if custom_excerpt}}
-                    <p class="gh-feed-post-excerpt is-body">{{custom_excerpt}}</p>
+                    <p class="is-body">{{custom_excerpt}}</p>
                 {{else}}
                     {{#if excerpt}}
-                        <p class="gh-feed-post-excerpt is-body">{{excerpt}}</p>
+                        <p class="is-body">{{excerpt}}</p>
                     {{/if}}
                 {{/if}}
 
-                <a class="gh-feed-post-readmore" href="{{url}}" aria-label="Read more: {{title}}">Read more</a>
+                <a href="{{url}}" aria-label="Read more: {{title}}">Read more</a>
 
             </div>
 
