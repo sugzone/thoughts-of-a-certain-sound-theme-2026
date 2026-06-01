@@ -1,6 +1,6 @@
 <section class="gh-recent-post-list gh-outer" aria-label="{{#if heading}}{{heading}}{{else}}Recent posts{{/if}}">
     {{#if heading}}
-        <h2 class="is-title">{{heading}}</h2>
+        <h2 class="is-title gh-header-text-serif">{{heading}}</h2>
     {{/if}}
     {{#get "posts" limit="3" filter=filter as |posts|}}
     {{#if posts}}
@@ -35,7 +35,15 @@
                 </div>
             </div>
 
-            <hr class="gh-recent-post-list-divider" aria-hidden="true">
+            {{#unless order}}
+                <div class="gh-recent-post-list-divider-default"></div>
+            {{/unless}}
+            {{#match order "odd"}}
+                <div class="gh-recent-post-list-divider-odd"></div>
+            {{/match}}
+            {{#match order "even"}}
+                <div class="gh-recent-post-list-divider-even"></div>
+            {{/match}}
 
         </li>
         {{/foreach}}

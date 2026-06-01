@@ -8,15 +8,29 @@
 {{> "components/header" headerStyle=@custom.header_style}}
 --}}
 
-{{> "components/latest-post"}}
+{{> "components/styled-section-header" text="Latest"}}
 
-{{> "components/post-card-group" filter="featured:true"}}
+<div class="gh-body-snapped-right">
+    {{> "components/latest-post"}}
+</div>
 
-<div class="gh-outer">
-    <div class="gh-home-columns-inner gh-inner">
-        {{> "components/recent-post-list" filter="tag:interview" heading="Interviews"}}
-        {{> "components/recent-post-list" filter="tag:essay" heading="Essays"}}
-        {{> "components/recent-post-list" filter="tag:records" heading="Records"}}
+{{> "components/styled-section-header" text="Featured"}}
+
+<div class="gh-body-snapped-right">
+    {{> "components/post-card-group" filter="featured:true"}}
+</div>
+
+
+{{> "components/styled-section-header" text="Categories"}}
+
+<div class="gh-body-snapped-right">
+    <div class="gh-outer">
+        <div class="gh-home-columns-inner gh-inner">
+            {{> "components/recent-post-list" filter="tag:interview" heading="interview" order="odd"}}
+            {{> "components/recent-post-list" filter="tag:essay" heading="essay" order="even"}}
+            {{> "components/recent-post-list" filter="tag:records" heading="records" order="odd"}}
+        </div>
     </div>
 </div>
+
 
