@@ -1226,6 +1226,13 @@ li:nth-child(n+2) .gh-header-text-tall-upper {
     flex-direction: row;
     /* gap: var(--grid-gap); */
     align-items: flex-start;
+    list-style: none;
+    padding: 0;
+}
+
+.gh-post-card-group-feed > li {
+    flex: 1;
+    min-width: 0;
 }
 
 @media (max-width: 767px) {
@@ -1235,7 +1242,6 @@ li:nth-child(n+2) .gh-header-text-tall-upper {
 }
 
 .gh-post-card-group-item {
-    flex: 1;
     display: flex;
     flex-direction: column;
     /* border-left: 1px solid var(--color-black); */
@@ -1974,6 +1980,8 @@ li:nth-child(n+2) .gh-header-text-tall-upper {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: var(--grid-gap);
+    list-style: none;
+    padding: 0;
 }
 
 .gh-featured-feed .gh-card {
@@ -2044,7 +2052,7 @@ li:nth-child(n+2) .gh-header-text-tall-upper {
         grid-template-columns: repeat(3, 1fr);
     }
 
-    .gh-viewport > .gh-featured .gh-featured-feed .gh-card:nth-child(4) {
+    .gh-viewport > .gh-featured .gh-featured-feed li:nth-child(4) {
         display: none;
     }
 }
@@ -2182,6 +2190,12 @@ li:nth-child(n+2) .gh-header-text-tall-upper {
 
 .gh-container .gh-feed {
     gap: var(--grid-gap);
+    list-style: none;
+    padding: 0;
+}
+
+.gh-container .gh-feed > li {
+    min-width: 0;
 }
 
 .gh-container .gh-card-meta:not(:empty) {
@@ -2235,7 +2249,7 @@ li:nth-child(n+2) .gh-header-text-tall-upper {
     margin-top: 6px;
 }
 
-.gh-container.is-list .gh-card + .gh-card::before {
+.gh-container.is-list li + li > .gh-card::before {
     position: absolute;
     top: calc(var(--grid-gap) / -2);
     left: 0;
@@ -2245,7 +2259,7 @@ li:nth-child(n+2) .gh-header-text-tall-upper {
     background-color: var(--color-border);
 }
 
-.home-template .gh-container.is-list .gh-card:first-child:before {
+.home-template .gh-container.is-list li:first-child > .gh-card::before {
     display: none;
 }
 
@@ -3120,11 +3134,19 @@ figcaption a {
     gap: 48px;
 }
 
+.gh-feed-inner > ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 48px;
+}
+
 .gh-feed-post {
     display: flex;
-    flex-direction: row;
-    gap: var(--grid-gap);
-    align-items: flex-start;
+    flex-direction: column;
+    /* gap: var(--grid-gap); */
+    /* align-items: flex-start; */
 }
 
 .gh-feed-post-figure {

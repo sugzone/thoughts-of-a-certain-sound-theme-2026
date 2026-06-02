@@ -4,42 +4,44 @@
     {{/if}}
     {{#get "posts" limit="3" filter=filter as |posts|}}
     {{#if posts}}
-    <ol class="gh-recent-post-list-items gh-inner" role="list">
+    <ul class="gh-recent-post-list-items gh-inner" role="list">
         {{#foreach posts}}
-        <li class="gh-recent-post-list-item">
+        <li>
+            <article class="gh-recent-post-list-item">
 
-            <div class="gh-recent-post-list-row">
-                {{#if @first}}
-                    {{#if feature_image}}
-                        <figure class="gh-recent-post-list-figure">
-                            <img
-                                class="gh-recent-post-list-image"
-                                srcset="{{img_url feature_image size="xs" format="webp"}} 160w,
-                                        {{img_url feature_image size="s" format="webp"}} 320w"
-                                sizes="(max-width: 767px) 30vw, 15vw"
-                                src="{{img_url feature_image size="s"}}"
-                                alt="{{#if feature_image_alt}}{{feature_image_alt}}{{else}}{{title}}{{/if}}"
-                                loading="eager"
-                                width="320"
-                                height="213"
-                            >
-                        </figure>
+                <div class="gh-recent-post-list-row">
+                    {{#if @first}}
+                        {{#if feature_image}}
+                            <figure class="gh-recent-post-list-figure">
+                                <img
+                                    class="gh-recent-post-list-image"
+                                    srcset="{{img_url feature_image size="xs" format="webp"}} 160w,
+                                            {{img_url feature_image size="s" format="webp"}} 320w"
+                                    sizes="(max-width: 767px) 30vw, 15vw"
+                                    src="{{img_url feature_image size="s"}}"
+                                    alt="{{#if feature_image_alt}}{{feature_image_alt}}{{else}}{{title}}{{/if}}"
+                                    loading="eager"
+                                    width="320"
+                                    height="213"
+                                >
+                            </figure>
+                        {{/if}}
                     {{/if}}
-                {{/if}}
 
-                <div class="gh-recent-post-list-content">
-                    <a class="is-title gh-header-text-tall-upper" href="{{url}}">{{title}}</a>
-                    <time class="gh-text-post-attributes" datetime="{{date format="M/DD/YYYY"}}">
-                        {{date format="M/DD/YYYY"}}
-                    </time>
+                    <div class="gh-recent-post-list-content">
+                        <a class="is-title gh-header-text-tall-upper" href="{{url}}">{{title}}</a>
+                        <time class="gh-text-post-attributes" datetime="{{date format="M/DD/YYYY"}}">
+                            {{date format="M/DD/YYYY"}}
+                        </time>
+                    </div>
                 </div>
-            </div>
 
-            <div class="gh-recent-post-list-divider"></div>
+                <div class="gh-recent-post-list-divider"></div>
 
+            </article>
         </li>
         {{/foreach}}
-    </ol>
+    </ul>
     {{/if}}
     {{/get}}
 </section>

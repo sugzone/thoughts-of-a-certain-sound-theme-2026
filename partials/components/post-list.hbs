@@ -8,7 +8,7 @@
 
 <section class="gh-container is-{{#match postFeedStyle "List"}}list{{else}}grid{{/match}}{{#if showSidebar}} has-sidebar{{/if}}{{#unless @custom.show_images_in_feed}} no-image{{/unless}} gh-outer">
     <div class="gh-container-inner gh-inner">
-        
+
         {{#if showTitle}}
             <h2 class="gh-container-title">
                 {{#unless title}}{{t "Latest"}}{{else}}{{title}}{{/unless}}
@@ -16,7 +16,7 @@
         {{/if}}
 
         <main class="gh-main">
-            <div class="gh-feed">
+            <ul class="gh-feed" role="list">
 
                 {{!-- Homepage --}}
                 {{#match feed "home"}}
@@ -25,7 +25,7 @@
                             {{#match posts.length ">=" 4}}
                                 {{#get "posts" include="authors" limit="16"}}
                                     {{#foreach posts from="5"}}
-                                        {{> "post-card" lazyLoad=true}}
+                                        <li>{{> "post-card" lazyLoad=true}}</li>
                                     {{/foreach}}
                                 {{/get}}
                             {{/match}}
@@ -33,7 +33,7 @@
                             {{#match posts.length ">=" 10}}
                                 {{#get "posts" include="authors" limit="22"}}
                                     {{#foreach posts from="11"}}
-                                        {{> "post-card" lazyLoad=true}}
+                                        <li>{{> "post-card" lazyLoad=true}}</li>
                                     {{/foreach}}
                                 {{/get}}
                             {{/match}}
@@ -42,14 +42,14 @@
                         {{#match posts.length ">=" 7}}
                             {{#get "posts" include="authors" limit="19"}}
                                 {{#foreach posts from="8"}}
-                                    {{> "post-card" lazyLoad=true}}
+                                    <li>{{> "post-card" lazyLoad=true}}</li>
                                 {{/foreach}}
                             {{/get}}
                         {{/match}}
                     {{else}}
                         {{#get "posts" include="authors" limit=@config.posts_per_page}}
                             {{#foreach posts}}
-                                {{> "post-card" lazyLoad=true}}
+                                <li>{{> "post-card" lazyLoad=true}}</li>
                             {{/foreach}}
                         {{/get}}
                     {{/match}}
@@ -60,23 +60,23 @@
                     {{#match pagination.page 2}}
                         {{#get "posts" include="authors" limit=@config.posts_per_page as |recent|}}
                             {{#foreach recent}}
-                                {{> "post-card"}}
+                                <li>{{> "post-card"}}</li>
                             {{/foreach}}
                         {{/get}}
                     {{/match}}
                     {{#foreach posts}}
-                        {{> "post-card" lazyLoad=true}}
+                        <li>{{> "post-card" lazyLoad=true}}</li>
                     {{/foreach}}
                 {{/match}}
 
                 {{!-- Tag and author pages --}}
                 {{#match feed "archive"}}
                     {{#foreach posts}}
-                        {{> "post-card" lazyLoad=true}}
+                        <li>{{> "post-card" lazyLoad=true}}</li>
                     {{/foreach}}
                 {{/match}}
 
-            </div>
+            </ul>
 
             {{#match pagination.pages ">" 1}}
                 <div class="gh-more is-title">
