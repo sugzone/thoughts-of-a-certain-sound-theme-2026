@@ -1263,7 +1263,7 @@ Search                         LOGO                    Login Subscribe
     flex-direction: row;
     width: 100%;
     /* align-items: flex-start; */
-    /* gap: calc( 0.5 * var(--grid-gap) ); */
+    gap: 1vw;
     justify-content: space-between;
 }
 
@@ -1273,7 +1273,7 @@ Search                         LOGO                    Login Subscribe
     display: flex;
     flex-direction: column;
     height: fit-content;
-    /* gap: 12px; */
+    gap: 2vh;
 }
 
 .gh-recent-post-list-figure {
