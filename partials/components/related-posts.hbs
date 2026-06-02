@@ -4,53 +4,53 @@
 <section class="gh-related-posts gh-outer" aria-labelledby="gh-related-posts-heading">
     <div class="gh-inner">
 
-        <h2 class="is-title" id="gh-related-posts-heading">Related</h2>
-
-        <div class="gh-related-posts-feed">
+        <ul class="gh-related-posts-feed" role="list">
             {{#foreach related}}
-            <article class="gh-related-post-item" aria-labelledby="gh-related-post-title-{{@index}}">
+            <li>
+                <article class="gh-related-post-item" aria-labelledby="gh-related-post-title-{{@index}}">
 
-                {{#if primary_tag}}
-                    <span>{{primary_tag.name}}</span>
-                {{/if}}
-
-                {{#if feature_image}}
-                    <figure class="gh-related-post-figure">
-                        <img
-                            class="gh-related-post-image"
-                            srcset="{{img_url feature_image size="xs" format="webp"}} 160w,
-                                    {{img_url feature_image size="s" format="webp"}} 320w,
-                                    {{img_url feature_image size="m" format="webp"}} 600w,
-                                    {{img_url feature_image size="l" format="webp"}} 960w"
-                            sizes="(max-width: 767px) 100vw, 33vw"
-                            src="{{img_url feature_image size="m"}}"
-                            alt="{{#if feature_image_alt}}{{feature_image_alt}}{{else}}{{title}}{{/if}}"
-                            loading="lazy"
-                            width="600"
-                            height="400"
-                        >
-                    </figure>
-                {{/if}}
-
-                <h3 class="is-title" id="gh-related-post-title-{{@index}}">
-                    <a href="{{url}}">{{title}}</a>
-                </h3>
-
-                <time datetime="{{date format="M/DD/YYYY"}}">
-                    {{date format="M/DD/YYYY"}}
-                </time>
-
-                {{#if custom_excerpt}}
-                    <p class="is-body">{{custom_excerpt}}</p>
-                {{else}}
-                    {{#if excerpt}}
-                        <p class="is-body">{{excerpt}}</p>
+                    {{#if primary_tag}}
+                        <span class="gh-post-card-group-tag gh-text-post-attributes">{{primary_tag.name}}</span>
                     {{/if}}
-                {{/if}}
 
-            </article>
+                    {{#if feature_image}}
+                        <figure class="gh-post-card-group-figure">
+                            <img
+                                class="gh-post-card-group-image"
+                                srcset="{{img_url feature_image size="xs" format="webp"}} 160w,
+                                        {{img_url feature_image size="s" format="webp"}} 320w,
+                                        {{img_url feature_image size="m" format="webp"}} 600w,
+                                        {{img_url feature_image size="l" format="webp"}} 960w"
+                                sizes="(max-width: 767px) 100vw, 25vw"
+                                src="{{img_url feature_image size="m"}}"
+                                alt="{{#if feature_image_alt}}{{feature_image_alt}}{{else}}{{title}}{{/if}}"
+                                loading="lazy"
+                                width="600"
+                                height="400"
+                            >
+                        </figure>
+                    {{/if}}
+
+                    <h3 class="is-title gh-header-text-tall-upper" id="gh-related-post-title-{{@index}}">
+                        <a href="{{url}}">{{title}}</a>
+                    </h3>
+
+                    <time class="gh-text-post-attributes" datetime="{{date format="M/DD/YYYY"}}">
+                        {{date format="M/DD/YYYY"}}
+                    </time>
+
+                    {{#if custom_excerpt}}
+                        <p class="is-body">{{custom_excerpt}}</p>
+                    {{else}}
+                        {{#if excerpt}}
+                            <p class="is-body">{{excerpt}}</p>
+                        {{/if}}
+                    {{/if}}
+
+                </article>
+            </li>
             {{/foreach}}
-        </div>
+        </ul>
 
     </div>
 </section>

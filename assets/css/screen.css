@@ -74,6 +74,7 @@ production stylesheet in assets/built/screen.css
     --color-secondary-text: rgb(0 0 0 / 0.55);
     --color-border: rgb(0 0 0 / 0.08);
     --color-dark-border: rgb(0 0 0 / 0.55);
+    --color-gradient: linear-gradient(135deg, var(--color-lighter-gray) 70%, var(--color-mid-gray));
     --font-sans: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
     --font-serif: "EB Garamond", Georgia, Times, serif;
     --font-serif-alt: Georgia, Times, serif;
@@ -193,6 +194,8 @@ a:hover {
     /* border-radius: 100px; */
     font-family: var(--font-nav);
     font-style: italic;
+    transition: all 0.4s ease;
+    text-transform: lowercase;
 }
 
 .gh-button:is(:hover,:focus) {
@@ -408,7 +411,7 @@ body[class*=" gh-font-heading"]:not(.gh-font-heading-fira-sans):not(.gh-font-hea
     top: 7vh;
     left: 1vw;
     width: 84px;
-    height: 100%;
+    bottom: 0;
     overflow: hidden;
     z-index: -1;
 }
@@ -429,11 +432,9 @@ body[class*=" gh-font-heading"]:not(.gh-font-heading-fira-sans):not(.gh-font-hea
 .gh-outer .gh-outer {
     padding: 0;
 }
-/* 
 .gh-body-outer {
-    width: 90%;
-    margin: auto 0 auto auto;
-} */
+    flex: 1;
+}
 
 .gh-body-snapped-right {
     /* width: 90%; */
@@ -1077,10 +1078,13 @@ Search                         LOGO                    Login Subscribe
     height: fit-content;
     margin-left: calc(var(--viewport-margin-left) + max(4vmin, 20px));
     gap: 1vw;
+    align-items: center;
 }
 
-.gh-styled-section-header-ellipse {
-    height: inherit;
+.gh-styled-section-header-ellipse svg {
+    height: 35px;
+    width: auto;
+    display: block;
 }
 
 .gh-header-text-tall-upper {
@@ -1089,6 +1093,20 @@ Search                         LOGO                    Login Subscribe
     transform: scaleY(1.4);
     transform-origin: top;
     margin: 1vh 0 calc(1vh + 0.4em) 0;
+}
+
+li:nth-child(1) .gh-header-text-tall-upper {
+    /* margin: 0; */
+    margin: -0.1em 0 0.4em 0;
+    line-height: 110%;
+    transform: scaleY(1.2);
+}
+
+li:nth-child(n+2) .gh-header-text-tall-upper {
+    /* margin: 0; */
+    margin: 0;
+    line-height: 110%;
+    transform: scaleY(1.2);
 }
 
 .gh-header-text-tall {
@@ -1106,6 +1124,11 @@ Search                         LOGO                    Login Subscribe
     margin: 1vh auto calc(1vh + 0.1em) auto;
     /* margin-bottom: 0.1em; */
     font-weight: 400;
+}
+
+.gh-recent-post-list .gh-header-text-serif {
+    font-size: x-large;
+    font-weight: 500;
 }
 
 .gh-styled-section-header-text-serif {
@@ -1132,7 +1155,7 @@ Search                         LOGO                    Login Subscribe
     flex-direction: column;
     /* gap: var(--grid-gap); */
     align-items: flex-start;
-    background: linear-gradient(135deg, var(--color-lighter-gray) 70%, var(--color-mid-gray));
+    background: var(--color-gradient);
     padding: 3vh 3vw;
     margin: 5vh 0 00 ;
     /* border-right: 1px solid var(--color-black); */
@@ -1273,7 +1296,8 @@ Search                         LOGO                    Login Subscribe
     display: flex;
     flex-direction: column;
     height: fit-content;
-    gap: 2vh;
+    gap: 1vh;
+    margin-bottom: 1vh;
 }
 
 .gh-recent-post-list-figure {
@@ -1283,10 +1307,11 @@ Search                         LOGO                    Login Subscribe
 
 .gh-recent-post-list-image {
     max-width: 100px;
-    /* height: 60px; */
-    height: auto;
+    height: 60px;
+    /* height: auto; */
     display: block;
     object-fit: cover;
+    margin-bottom: 2vh;
 }
 
 .gh-recent-post-list-divider {
@@ -1334,16 +1359,22 @@ Search                         LOGO                    Login Subscribe
 .gh-related-posts-feed {
     display: flex;
     flex-direction: row;
-    gap: var(--grid-gap);
     align-items: flex-start;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.gh-related-posts-feed li {
+    flex: 0 0 25%;
+    min-width: 0;
 }
 
 .gh-related-post-item {
-    flex: 1;
-    min-width: 0;
     display: flex;
     flex-direction: column;
     gap: 16px;
+    padding: 1vh 1vw;
 }
 
 .gh-related-post-figure {
@@ -2436,18 +2467,23 @@ Search                         LOGO                    Login Subscribe
 }
 
 .gh-article-tag {
-    margin-bottom: 12px;
-    font-size: 1.3rem;
-    font-weight: 500;
-    letter-spacing: 0.01em;
-    text-transform: uppercase;
-    color: var(--ghost-accent-color);
+    /* margin-bottom: 12px; */
+    /* font-size: 1.3rem; */
+    /* font-weight: 500; */
+    /* letter-spacing: 0.01em; */
+    /* text-transform: uppercase; */
+    /* color: var(--ghost-accent-color); */
 }
 
 .gh-article-title {
     font-size: calc(clamp(3.4rem, 1.36vw + 2.85rem, 4.6rem) * var(--factor, 1));
     line-height: 1.1;
     letter-spacing: -0.022em;
+    text-transform: uppercase;
+    transform: scaleY(1.4);
+    transform-origin: top;
+    /* margin: 1vh 0 calc(1vh + 0.4em) 0; */
+    margin-bottom: 0.4em;
 }
 
 .gh-article-excerpt {
@@ -2511,6 +2547,15 @@ Search                         LOGO                    Login Subscribe
     font-size: 1.6rem;
     font-weight: 650;
     letter-spacing: -0.013em;
+    font-family: var(--font-archivo-narrow);
+    text-transform: uppercase;
+    font-style: italic;
+    font-weight: 700;
+}
+
+.gh-article-date {
+    font-weight: 700;
+    color: var(--color-black) !important;
 }
 
 .gh-article-meta-content {
@@ -2521,13 +2566,14 @@ Search                         LOGO                    Login Subscribe
     color: var(--color-secondary-text);
 }
 
-.gh-article-image {
+/* .gh-article-image {
     grid-column: wide;
     margin-top: 40px;
-}
+} */
 
 .gh-article-image img {
     width: 100%;
+    margin: 1vh 0;
 }
 
 /* 14.2. Page template */
@@ -3253,9 +3299,10 @@ body[class*=" gh-font-heading"]:not(.gh-font-heading-fira-sans):not(.gh-font-hea
 /* ---------------------------------------------------------- */
 
 .gh-footer {
-    margin-top: 12vw;
+    padding-top: 12vw;
     font-size: 1.5rem;
     color: var(--color-darker-gray);
+    background: var(--color-gradient);
 }
 
 .gh-footer a:not(.gh-button) {
@@ -3876,12 +3923,15 @@ body[class*=" gh-font-heading"]:not(.gh-font-heading-fira-sans):not(.gh-font-hea
 .gh-button-share {
     display: inline-flex;
     align-items: center;
-    border: 1px solid rgba(0, 0, 0, 0.15);
-    border-radius: 999px;
+    border: 1px solid var(--color-black);
+    /* border-radius: 999px; */
     color: rgba(0, 0, 0, 0.85);
     background: transparent;
     cursor: pointer;
     transition: all 0.4s ease;
+    text-transform: lowercase;
+    font-family: var(--font-archivo-narrow);
+    font-style: italic;
 }
 
 .gh-button-share:hover {

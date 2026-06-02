@@ -10,12 +10,16 @@
         <header class="gh-article-header gh-canvas">
 
             {{#if primary_tag}}
-                <a class="gh-article-tag" href="{{primary_tag.url}}">{{primary_tag.name}}</a>
+                <a class="gh-article-tag gh-text-post-attributes" href="{{primary_tag.url}}">{{primary_tag.name}}</a>
             {{/if}}
             <h1 class="gh-article-title is-title">{{title}}</h1>
             {{#if custom_excerpt}}
                 <p class="gh-article-excerpt is-body">{{custom_excerpt}}</p>
             {{/if}}
+
+            <div class="gh-article-image">
+                {{> "feature-image"}}
+            </div>
 
             {{#if @custom.show_post_metadata}}
                 <div class="gh-meta-share">
@@ -34,20 +38,18 @@
                         <div class="gh-article-meta-wrapper">
                             <h4 class="gh-article-author-name">{{authors}}</h4>
                             <div class="gh-article-meta-content">
-                                <time class="gh-article-meta-date" datetime="{{date format="M/DD/YYYY"}}">{{date format="DD MMM YYYY"}}</time>
-                                {{#if reading_time}}
+                                <time class="gh-text-post-attributes gh-article-date" datetime="{{date format="M/DD/YYYY"}}">{{date format="M/DD/YYYY"}}</time>
+                                {{!-- {{#if reading_time}}
                                     <span class="gh-article-meta-length"><span class="bull">—</span> {{reading_time minute=(t "1 min read") minutes=(t "% min read")}}</span>
-                                {{/if}}
+                                {{/if}} --}}
                             </div>
                         </div>
                     </div>
-                    <a href="#/share" class="gh-button gh-button-share">
+                    <a href="#/share" class="gh-button">
                         {{t "Share"}}
                     </a>
                 </div>
             {{/if}}
-
-            {{> "feature-image"}}
 
         </header>
 
@@ -66,6 +68,8 @@
 </main>
 
 {{/post}}
+
+{{> "components/styled-section-header" text="Related"}}
 
 {{> "components/related-posts"}}
 
