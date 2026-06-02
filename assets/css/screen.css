@@ -88,6 +88,7 @@ production stylesheet in assets/built/screen.css
     --container-width: 1320px;
     --container-gap: clamp(24px, 1.7032rem + 1.9355vw, 48px);
     --grid-gap: 42px;
+    --viewport-margin-left: 5vw;
 }
 
 :root.has-light-text,
@@ -437,7 +438,11 @@ body[class*=" gh-font-heading"]:not(.gh-font-heading-fira-sans):not(.gh-font-hea
 .gh-body-snapped-right {
     /* width: 90%; */
     /* margin: auto 0 auto auto; */
-    margin: auto 0 auto 5vw;
+    margin: auto 0 auto var(--viewport-margin-left);
+}
+
+.temporary-spacer {
+    margin-top: 20vh;
 }
 
 .gh-inner {
@@ -1066,13 +1071,24 @@ Search                         LOGO                    Login Subscribe
     margin-top: 1vh;
 }
 
+.gh-styled-section-header-content {
+    display: flex;
+    flex-direction: row;
+    height: fit-content;
+    margin-left: calc(var(--viewport-margin-left) + max(4vmin, 20px));
+    gap: 1vw;
+}
+
+.gh-styled-section-header-ellipse {
+    height: inherit;
+}
 
 .gh-header-text-tall-upper {
     font-weight: 700;
     text-transform: uppercase;
     transform: scaleY(1.4);
     transform-origin: top;
-    margin-bottom: 0.4em;
+    margin: 1vh 0 calc(1vh + 0.4em) 0;
 }
 
 .gh-header-text-tall {
@@ -1095,7 +1111,6 @@ Search                         LOGO                    Login Subscribe
 .gh-styled-section-header-text-serif {
     font-family: var(--font-aujournuit);
     font-size: 4rem;
-    margin-left: calc(5vw + max(4vmin, 20px));
     transform: scaleY(1.1);
     transform-origin: top;
     margin-bottom: 0.1em;
@@ -1117,6 +1132,12 @@ Search                         LOGO                    Login Subscribe
     flex-direction: column;
     /* gap: var(--grid-gap); */
     align-items: flex-start;
+    background: linear-gradient(135deg, var(--color-lighter-gray) 70%, var(--color-mid-gray));
+    padding: 3vh 3vw;
+    margin: 5vh 0 00 ;
+    /* border-right: 1px solid var(--color-black); */
+    /* border-bottom: 1px solid var(--color-black); */
+
 }
 
 .gh-latest-post-inner-header-row {
@@ -1139,17 +1160,17 @@ Search                         LOGO                    Login Subscribe
 }
 
 .gh-latest-post-left {
-    flex: 1;
+    /* flex: 1; */
     display: flex;
     flex-direction: column;
-    gap: 16px;
+    /* gap: 1vh; */
 }
 
 .gh-latest-post-right {
-    flex: 1;
+    flex: 2;
     display: flex;
     flex-direction: column;
-    gap: 16px;
+    /* gap: 16px; */
 }
 
 .gh-latest-post-figure {
@@ -1180,7 +1201,7 @@ Search                         LOGO                    Login Subscribe
 .gh-post-card-group-feed {
     display: flex;
     flex-direction: row;
-    gap: var(--grid-gap);
+    /* gap: var(--grid-gap); */
     align-items: flex-start;
 }
 
@@ -1194,7 +1215,12 @@ Search                         LOGO                    Login Subscribe
     flex: 1;
     display: flex;
     flex-direction: column;
-    gap: 16px;
+    /* border-left: 1px solid var(--color-black); */
+    /* border-right: 1px solid var(--color-black); */
+    /* border-bottom: 1px solid var(--color-black); */
+    /* background-color: var(--color-light-gray); */
+    padding: 1vh 1vw;
+    /* background: linear-gradient(white, var(--color-lighter-gray)); */
 }
 
 .gh-post-card-group-tag {
@@ -1202,13 +1228,17 @@ Search                         LOGO                    Login Subscribe
 }
 
 .gh-post-card-group-figure {
-    margin: 0;
+    margin: 1vh 0 0 0;
 }
 
 .gh-post-card-group-image {
     width: 100%;
-    height: auto;
+    max-height: 150px;
     display: block;
+    object-fit: cover;
+    padding-top: 1vh;
+    /* border-top: 1px solid var(--color-black); */
+
 }
 
 /* 7.2. Recent Post List
@@ -1225,28 +1255,29 @@ Search                         LOGO                    Login Subscribe
 .gh-recent-post-list-item {
     display: flex;
     flex-direction: column;
-    gap: 16px;
+    /* gap: 16px; */
 }
 
 .gh-recent-post-list-row {
     display: flex;
     flex-direction: row;
     width: 100%;
-    align-items: flex-start;
-    gap: calc( 0.5 * var(--grid-gap) );
+    /* align-items: flex-start; */
+    /* gap: calc( 0.5 * var(--grid-gap) ); */
     justify-content: space-between;
 }
 
 .gh-recent-post-list-content {
-    flex: 1;
-    min-width: 0;
+    /* flex: 1; */
+    /* min-width: 0; */
     display: flex;
     flex-direction: column;
-    gap: 12px;
+    height: fit-content;
+    /* gap: 12px; */
 }
 
 .gh-recent-post-list-figure {
-    flex: 0 0 auto;
+    /* flex: 0 0 auto; */
     margin: 0;
 }
 
@@ -1258,29 +1289,24 @@ Search                         LOGO                    Login Subscribe
     object-fit: cover;
 }
 
-.gh-recent-post-list-divider-default {
+.gh-recent-post-list-divider {
     border-top: 1px solid var(--color-black);
-    width: 80%;
 }
 
-li > .gh-recent-post-list-divider-odd {
-    border-top: 1px solid var(--color-black);
-    width: 80%;
+.is-order-odd li:nth-child(odd) .gh-recent-post-list-divider {
+    max-width: 70%;
 }
 
-li:nth-child(even) > .gh-recent-post-list-divider-odd {
-    border-top: 1px solid var(--color-black);
-    width: 20%;
+.is-order-odd li:nth-child(even) .gh-recent-post-list-divider {
+    max-width: 30%;
 }
 
-li > .gh-recent-post-list-divider-even {
-    border-top: 1px solid var(--color-black);
-    width: 20%;
+.is-order-even li:nth-child(odd) .gh-recent-post-list-divider {
+    max-width: 30%;
 }
 
-li:nth-child(even) > .gh-recent-post-list-divider-even {
-    border-top: 1px solid var(--color-black);
-    width: 80%;
+.is-order-even li:nth-child(even) .gh-recent-post-list-divider {
+    max-width: 70%;
 }
 
 .gh-home-columns-inner {
