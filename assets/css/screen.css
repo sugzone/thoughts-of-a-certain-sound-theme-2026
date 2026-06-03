@@ -182,9 +182,9 @@ a:hover {
     gap: 0.4em;
     align-items: center;
     justify-content: center;
-    padding: 0.8em 1.4em;
-    font-size: 1.5rem;
-    font-weight: 600;
+    padding: 0.4em 0.7em;
+    /* font-size: 1.5rem; */
+    /* font-weight: 600; */
     letter-spacing: -0.004em;
     line-height: 1;
     color: var(--color-black);
@@ -414,6 +414,7 @@ body[class*=" gh-font-heading"]:not(.gh-font-heading-fira-sans):not(.gh-font-hea
     bottom: 0;
     overflow: hidden;
     z-index: -1;
+    /* margin-top: -5vh; */
 }
 
 .gh-viewport {
@@ -489,8 +490,8 @@ body[class*=" gh-font-heading"]:not(.gh-font-heading-fira-sans):not(.gh-font-hea
 
 .gh-navigation {
     height: 100px;
-    font-size: 1.5rem;
-    font-weight: 550;
+    font-size: large;
+    font-weight: 500;
     background-color: var(--background-color);
     color: var(--color-darker-gray);
 }
@@ -1365,22 +1366,33 @@ li:nth-child(n+2) .gh-header-text-tall-upper {
 .gh-related-posts-feed {
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
     align-items: flex-start;
     list-style: none;
     padding: 0;
-    margin: 0;
+    margin: 0 auto;
+    gap: auto;
+    
 }
 
 .gh-related-posts-feed li {
     flex: 0 0 25%;
-    min-width: 0;
+    /* min-width: 0; */
+}
+
+@media (max-width: 767px) {
+    .gh-related-posts-feed li {
+        flex: 0 0 50%;
+    }
 }
 
 .gh-related-post-item {
     display: flex;
     flex-direction: column;
-    gap: 16px;
-    padding: 1vh 1vw;
+    width: 90%;
+    padding: 1vw;
+    /* gap: 16px; */
+    /* padding: 12px; */
 }
 
 .gh-related-post-figure {
@@ -1388,9 +1400,9 @@ li:nth-child(n+2) .gh-header-text-tall-upper {
 }
 
 .gh-related-post-image {
-    width: 100%;
+    width: 90%;
     height: auto;
-    display: block;
+    /* display: block; */
 }
 
 /* 8. Card
@@ -3143,19 +3155,14 @@ figcaption a {
 }
 
 .gh-feed-post {
-    display: flex;
-    flex-direction: column;
-    /* gap: var(--grid-gap); */
-    /* align-items: flex-start; */
 }
 
 .gh-feed-post-figure {
-    flex: 0 0 auto;
     margin: 0;
 }
 
 .gh-feed-post-image {
-    width: 200px;
+    width: 100%;
     height: auto;
     display: block;
 }
@@ -3170,10 +3177,14 @@ figcaption a {
 
 .gh-feed-post-meta {
     display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    gap: 8px 16px;
-    align-items: center;
+    flex-direction: column;
+    /* flex-wrap: wrap; */
+    /* gap: 8px 16px; */
+    /* align-items: center; */
+}
+
+.gh-feed-post-content .gh-button {
+    align-self: flex-start;
 }
 
 /* 19.2. Pagination
