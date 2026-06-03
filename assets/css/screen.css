@@ -408,13 +408,14 @@ body[class*=" gh-font-heading"]:not(.gh-font-heading-fira-sans):not(.gh-font-hea
 
 .gh-vertical-line {
     position: absolute;
-    top: 7vh;
+    top: 3vh;
     left: 1vw;
     width: 84px;
     bottom: 0;
     overflow: hidden;
-    z-index: -1;
-    /* margin-top: -5vh; */
+    z-index: 1;
+    pointer-events: none;
+    /* margin: -5vh; */
 }
 
 .gh-viewport {
@@ -968,7 +969,7 @@ Search                         LOGO                    Login Subscribe
     #gh-navigation .nav a {
         font-size: 1.75rem;
         font-weight: 600;
-        text-transform: none;
+        text-transform: lowercase;
     }
 
     #gh-navigation .nav li {
@@ -1359,7 +1360,7 @@ li:nth-child(n+2) .gh-header-text-recent-post-list {
     flex-direction: row;
     align-items: flex-start;
     gap: var(--grid-gap);
-    margin: 1vh auto;
+    margin: 1vh auto 5vh auto;
 }
 
 .gh-home-columns-inner > .gh-recent-post-list {
@@ -2642,7 +2643,7 @@ li:nth-child(n+2) .gh-header-text-recent-post-list {
 }
 
 .page-template .gh-footer {
-    margin-top: 0;
+    margin: 0;
 }
 
 /* 15. Content
@@ -3355,10 +3356,31 @@ body[class*=" gh-font-heading"]:not(.gh-font-heading-fira-sans):not(.gh-font-hea
 /* ---------------------------------------------------------- */
 
 .gh-footer {
-    padding-top: 12vw;
+    /* padding-top: 12vw; */
+    padding-top: 3vh;
+    padding-bottom: 3vh;
     font-size: 1.5rem;
     color: var(--color-darker-gray);
     background: var(--color-gradient);
+}
+
+.gh-footer-inner {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: start;
+}
+
+.home-template .gh-footer-inner {
+    padding-left: var(--viewport-margin-left);
+}
+
+@media (max-width: 767px) {
+    .gh-footer-inner {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 16px;
+    }
 }
 
 .gh-footer a:not(.gh-button) {
@@ -3383,14 +3405,22 @@ body[class*=" gh-font-heading"]:not(.gh-font-heading-fira-sans):not(.gh-font-hea
 /* 21.2. Footer bar */
 
 .gh-footer-bar {
-    display: grid;
-    grid-template-columns: 1fr auto 1fr;
+    display: flex;
+    flex-direction: column;
     align-items: center;
-    column-gap: 32px;
-    margin-bottom: 100px;
-    padding-block: 28px;
+    /* column-gap: 32px; */
+    /* margin-bottom: 100px; */
+    /* padding-block: 28px; */
     font-weight: 550;
+    padding: 3vh 3vw;
+    margin: 5vh 0 ;
     border-block: 1px solid var(--color-border);
+}
+
+.gh-footer-column {
+    display: flex;
+    flex-direction: column;
+    font-family: var(--font-archivo-narrow);
 }
 
 .gh-footer-logo {
@@ -3411,8 +3441,8 @@ body[class*=" gh-font-heading"]:not(.gh-font-heading-fira-sans):not(.gh-font-hea
     justify-content: center;
     gap: 8px 28px;
     flex-wrap: wrap;
-    margin: 0;
-    padding: 0;
+    /* margin: 0;
+    padding: 0; */
     list-style-type: none;
 }
 

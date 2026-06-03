@@ -1,9 +1,20 @@
 {{!-- Provisional footer: site title only --}}
 <footer class="gh-footer gh-outer">
     <div class="gh-footer-inner gh-inner">
-        <span class="gh-footer-title is-title">{{@site.title}}</span>
+        <div class="gh-footer-column">
+            <span class="gh-footer-title is-title">{{@site.title}}</span>
+            <a href="/about">About</a>
+            <span>Site designed by <a href="https://jazzstrategies.guru">Jazz Strategies</a></span>
+        </div>
+        
+        {{#if @site.members_enabled}}
+            {{#unless @member}}
+                <button class="gh-button" data-portal="signup">Subscribe</button>
+            {{/unless}}
+        {{/if}}
     </div>
 </footer>
+
 
 {{!--
 TO RESTORE FULL FOOTER: remove the provisional block above and uncomment below.
