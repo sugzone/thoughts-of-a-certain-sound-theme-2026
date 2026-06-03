@@ -1096,18 +1096,24 @@ Search                         LOGO                    Login Subscribe
     margin: 1vh 0 calc(1vh + 0.4em) 0;
 }
 
-li:nth-child(1) .gh-header-text-tall-upper {
-    /* margin: 0; */
-    margin: -0.1em 0 0.4em 0;
+.gh-header-text-tag-list-item {
+    font-size: large;
+}
+
+li .gh-header-text-recent-post-list {
+    font-weight: 700;
+    text-transform: uppercase;
+    transform-origin: top;
     line-height: 110%;
     transform: scaleY(1.2);
 }
 
-li:nth-child(n+2) .gh-header-text-tall-upper {
-    /* margin: 0; */
+li:nth-child(1) .gh-header-text-recent-post-list {
+    margin: -0.1em 0 0.4em 0;
+}
+
+li:nth-child(n+2) .gh-header-text-recent-post-list {
     margin: 0;
-    line-height: 110%;
-    transform: scaleY(1.2);
 }
 
 .gh-header-text-tall {
@@ -1148,6 +1154,11 @@ li:nth-child(n+2) .gh-header-text-tall-upper {
     color: var(--color-secondary-text);
 }
 
+.gh-text-post-attributes-black {
+    color: var(--color-black);
+    font-style: normal;
+}
+
 /* 7. Latest Post
 /* ---------------------------------------------------------- */
 
@@ -1158,7 +1169,7 @@ li:nth-child(n+2) .gh-header-text-tall-upper {
     align-items: flex-start;
     background: var(--color-gradient);
     padding: 3vh 3vw;
-    margin: 5vh 0 00 ;
+    margin: 5vh 0 ;
     /* border-right: 1px solid var(--color-black); */
     /* border-bottom: 1px solid var(--color-black); */
 
@@ -1263,9 +1274,10 @@ li:nth-child(n+2) .gh-header-text-tall-upper {
 
 .gh-post-card-group-image {
     width: 100%;
-    max-height: 150px;
+    /* max-height: 150px; */
     display: block;
     object-fit: cover;
+    aspect-ratio: 5/3;
     /* padding-top: 1vh; */
     /* border-top: 1px solid var(--color-black); */
 
@@ -1314,11 +1326,12 @@ li:nth-child(n+2) .gh-header-text-tall-upper {
 
 .gh-recent-post-list-image {
     max-width: 100px;
-    height: 60px;
+    /* height: 60px; */
     /* height: auto; */
     display: block;
     object-fit: cover;
     margin-bottom: 2vh;
+    aspect-ratio: 5/3;
 }
 
 .gh-recent-post-list-divider {
@@ -1369,9 +1382,11 @@ li:nth-child(n+2) .gh-header-text-tall-upper {
     flex-wrap: wrap;
     align-items: flex-start;
     list-style: none;
-    padding: 0;
-    margin: 0 auto;
-    gap: auto;
+    padding: 3vh 3vw;
+    margin: 0 0 5vh 0;
+    /* padding: 0; */
+    /* margin: 0 0 0 auto; */
+    /* gap: 1vw; */
     
 }
 
@@ -1389,8 +1404,8 @@ li:nth-child(n+2) .gh-header-text-tall-upper {
 .gh-related-post-item {
     display: flex;
     flex-direction: column;
-    width: 90%;
-    padding: 1vw;
+    width: 100%;
+    padding: 2vw;
     /* gap: 16px; */
     /* padding: 12px; */
 }
@@ -1400,7 +1415,7 @@ li:nth-child(n+2) .gh-header-text-tall-upper {
 }
 
 .gh-related-post-image {
-    width: 90%;
+    /* width: 90%; */
     height: auto;
     /* display: block; */
 }
@@ -2490,6 +2505,14 @@ li:nth-child(n+2) .gh-header-text-tall-upper {
 
 .gh-article-header {
     margin: clamp(40px, 3.64vw + 25.45px, 72px) 0 40px;
+}
+
+.gh-article-tags {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    /* gap: 8px; */
+    /* margin-bottom: 2vh; */
 }
 
 .gh-article-tag {

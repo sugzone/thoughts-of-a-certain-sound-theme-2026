@@ -51,7 +51,16 @@
                 </div>
             {{/if}}
 
+            {{#if tags}}
+                <nav class="gh-article-tags gh-canvas" aria-label="Post tags">
+                    <span class="gh-text-post-attributes gh-text-post-attributes-black">tags: </span>
+                    {{#foreach tags}}<a class="gh-article-tag gh-text-post-attributes" href="{{url}}">{{name}}</a>{{#unless @last}}, {{/unless}}{{/foreach}}
+                </nav>
+            {{/if}}
+
         </header>
+
+        
 
         <section class="gh-content gh-canvas is-body{{#if @custom.enable_drop_caps_on_posts}} drop-cap{{/if}}">
             {{content}}
