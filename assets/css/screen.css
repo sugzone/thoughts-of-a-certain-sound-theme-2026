@@ -75,6 +75,8 @@ production stylesheet in assets/built/screen.css
     --color-border: rgb(0 0 0 / 0.08);
     --color-dark-border: rgb(0 0 0 / 0.55);
     --color-gradient: linear-gradient(135deg, var(--color-lighter-gray) 70%, var(--color-mid-gray));
+    --color-link: #322eff;
+    --color-accent: #e0e822;
     --font-sans: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
     --font-serif: "EB Garamond", Georgia, Times, serif;
     --font-serif-alt: Georgia, Times, serif;
@@ -173,8 +175,14 @@ a {
     text-decoration: none;
 }
 
+a.gh-article-tag, 
+section.is-body a {
+    color: var(--color-link);
+}
+
 a:hover {
     opacity: 0.8;
+    text-decoration: underline;
 }
 
 .gh-button {
@@ -200,7 +208,7 @@ a:hover {
 
 .gh-button:is(:hover,:focus) {
     opacity: 0.95;
-    color: var(--color-secondary-text);
+    color: var(--color-accent);
     background-color: var(--ghost-accent-color);
     border: 1px solid var(--color-border);
 }
@@ -1095,6 +1103,8 @@ Search                         LOGO                    Login Subscribe
     transform: scaleY(1.4);
     transform-origin: top;
     margin: 1vh 0 calc(1vh + 0.4em) 0;
+    /* padding-bottom: 1vh; */
+    padding-bottom: 1em;
 }
 
 .gh-header-text-tag-list-item {
@@ -1153,6 +1163,10 @@ li:nth-child(n+2) .gh-header-text-recent-post-list {
     font-style: italic;
     font-weight: 300;
     color: var(--color-secondary-text);
+}
+
+.gh-post-attribute-date-buffered {
+    margin-top: 1vh;
 }
 
 .gh-text-post-attributes-black {
@@ -1262,7 +1276,7 @@ li:nth-child(n+2) .gh-header-text-recent-post-list {
     /* border-bottom: 1px solid var(--color-black); */
     /* background-color: var(--color-light-gray); */
     padding: 1vh 1vw;
-    gap: 2vh;
+    /* gap: 2vh; */
     /* background: linear-gradient(white, var(--color-lighter-gray)); */
 }
 
@@ -1308,7 +1322,7 @@ li:nth-child(n+2) .gh-header-text-recent-post-list {
     width: 100%;
     /* align-items: flex-start; */
     gap: 1vw;
-    justify-content: space-between;
+    /* justify-content: space-between; */
 }
 
 .gh-recent-post-list-content {
