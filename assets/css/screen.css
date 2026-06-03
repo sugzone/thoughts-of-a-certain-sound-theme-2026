@@ -408,7 +408,7 @@ body[class*=" gh-font-heading"]:not(.gh-font-heading-fira-sans):not(.gh-font-hea
 
 .gh-vertical-line {
     position: absolute;
-    top: 3vh;
+    top: 0;
     left: 1vw;
     width: 84px;
     bottom: 0;
@@ -1262,6 +1262,7 @@ li:nth-child(n+2) .gh-header-text-recent-post-list {
     /* border-bottom: 1px solid var(--color-black); */
     /* background-color: var(--color-light-gray); */
     padding: 1vh 1vw;
+    gap: 2vh;
     /* background: linear-gradient(white, var(--color-lighter-gray)); */
 }
 
@@ -1327,8 +1328,6 @@ li:nth-child(n+2) .gh-header-text-recent-post-list {
 
 .gh-recent-post-list-image {
     max-width: 100px;
-    /* height: 60px; */
-    /* height: auto; */
     display: block;
     object-fit: cover;
     margin-bottom: 2vh;
