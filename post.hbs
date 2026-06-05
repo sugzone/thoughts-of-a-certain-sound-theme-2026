@@ -7,70 +7,74 @@
 
     <article class="gh-article {{post_class}}">
 
-        <header class="gh-article-header gh-canvas">
+        <header class="gh-article-header gh-outer">
+            <div class="gh-inner gh-canvas">
 
-            {{#if primary_tag}}
-                <a class="gh-article-tag gh-text-post-attributes" href="{{primary_tag.url}}">{{primary_tag.name}}</a>
-            {{/if}}
-            <h1 class="gh-article-title is-title">{{title}}</h1>
-            {{#if custom_excerpt}}
-                <p class="gh-article-excerpt is-body">{{custom_excerpt}}</p>
-            {{/if}}
+                {{#if primary_tag}}
+                    <a class="gh-article-tag gh-text-post-attributes" href="{{primary_tag.url}}">{{primary_tag.name}}</a>
+                {{/if}}
+                <h1 class="gh-article-title is-title">{{title}}</h1>
+                {{#if custom_excerpt}}
+                    <p class="gh-article-excerpt is-body">{{custom_excerpt}}</p>
+                {{/if}}
 
-            <div class="gh-article-image">
-                {{> "feature-image"}}
-            </div>
+                <div class="gh-article-image">
+                    {{> "feature-image"}}
+                </div>
 
-            {{#if @custom.show_post_metadata}}
-                <div class="gh-meta-share">
-                    <div class="gh-article-meta">
-                        <div class="gh-article-author-image instapaper_ignore">
-                            {{#foreach authors}}
-                                {{#if profile_image}}
-                                    <a href="{{url}}">
-                                        <img class="author-profile-image" src="{{img_url profile_image size="xs"}}" alt="{{name}}">
-                                    </a>
-                                {{else}}
-                                    <a href="{{url}}">{{> "icons/avatar"}}</a>
-                                {{/if}}
-                            {{/foreach}}
-                        </div>
-                        <div class="gh-article-meta-wrapper">
-                            <span class="gh-article-author-name">{{authors}}</span>
-                            <div class="gh-article-meta-content">
-                                <time class="gh-text-post-attributes gh-article-date" datetime="{{date format="M/DD/YYYY"}}">{{date format="M/DD/YYYY"}}</time>
-                                {{!-- {{#if reading_time}}
-                                    <span class="gh-article-meta-length"><span class="bull">—</span> {{reading_time minute=(t "1 min read") minutes=(t "% min read")}}</span>
-                                {{/if}} --}}
+                {{#if @custom.show_post_metadata}}
+                    <div class="gh-meta-share">
+                        <div class="gh-article-meta">
+                            <div class="gh-article-author-image instapaper_ignore">
+                                {{#foreach authors}}
+                                    {{#if profile_image}}
+                                        <a href="{{url}}">
+                                            <img class="author-profile-image" src="{{img_url profile_image size="xs"}}" alt="{{name}}">
+                                        </a>
+                                    {{else}}
+                                        <a href="{{url}}">{{> "icons/avatar"}}</a>
+                                    {{/if}}
+                                {{/foreach}}
+                            </div>
+                            <div class="gh-article-meta-wrapper">
+                                <span class="gh-article-author-name">{{authors}}</span>
+                                <div class="gh-article-meta-content">
+                                    <time class="gh-text-post-attributes gh-article-date" datetime="{{date format="M/DD/YYYY"}}">{{date format="M/DD/YYYY"}}</time>
+                                    {{!-- {{#if reading_time}}
+                                        <span class="gh-article-meta-length"><span class="bull">—</span> {{reading_time minute=(t "1 min read") minutes=(t "% min read")}}</span>
+                                    {{/if}} --}}
+                                </div>
                             </div>
                         </div>
+                        <a href="#/share" class="gh-button">
+                            {{t "Share"}}
+                        </a>
                     </div>
-                    <a href="#/share" class="gh-button">
-                        {{t "Share"}}
-                    </a>
-                </div>
-            {{/if}}
+                {{/if}}
 
-            {{#if tags}}
-                <nav class="gh-article-tags gh-canvas" aria-label="Post tags">
-                    <span class="gh-text-post-attributes gh-text-post-attributes-black">tags </span>
-                    {{#foreach tags}}<a class="gh-article-tag gh-text-post-attributes" href="{{url}}">{{name}}</a>{{#unless @last}}, {{/unless}}{{/foreach}}
-                </nav>
-            {{/if}}
+                {{#if tags}}
+                    <nav class="gh-article-tags" aria-label="Post tags">
+                        <span class="gh-text-post-attributes gh-text-post-attributes-black">tags </span>
+                        {{#foreach tags}}<a class="gh-article-tag gh-text-post-attributes" href="{{url}}">{{name}}</a>{{#unless @last}}, {{/unless}}{{/foreach}}
+                    </nav>
+                {{/if}}
 
+            </div>
         </header>
 
-        
-
-        <section class="gh-content gh-canvas is-body{{#if @custom.enable_drop_caps_on_posts}} drop-cap{{/if}}">
-            {{content}}
+        <section class="gh-content gh-outer is-body{{#if @custom.enable_drop_caps_on_posts}} drop-cap{{/if}}">
+            <div class="gh-inner gh-canvas">
+                {{content}}
+            </div>
         </section>
 
     </article>
 
     {{#if comments}}
-        <div class="gh-comments gh-canvas">
-            {{comments}}
+        <div class="gh-comments gh-outer">
+            <div class="gh-inner gh-canvas">
+                {{comments}}
+            </div>
         </div>
     {{/if}}
 
