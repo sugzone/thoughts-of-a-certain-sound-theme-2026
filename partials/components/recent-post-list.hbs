@@ -1,6 +1,6 @@
 <section class="gh-recent-post-list gh-outer{{#match order "odd"}} is-order-odd{{/match}}{{#match order "even"}} is-order-even{{/match}}" aria-label="{{#if heading}}{{heading}}{{else}}Recent posts{{/if}}">
     {{#if heading}}
-        <h3 class="is-title gh-header-text-serif">{{heading}}</h3>
+        <h3 class="is-title gh-header-text-serif">{{#if headerLink}}<a href="/tag/{{heading}}">{{heading}}</a>{{else}}{{heading}}{{/if}}</h3>
     {{/if}}
     {{#get "posts" limit="3" filter=filter as |posts|}}
     {{#if posts}}
