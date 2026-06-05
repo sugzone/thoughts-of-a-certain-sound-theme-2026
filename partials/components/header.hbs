@@ -1,15 +1,7 @@
 {{#match headerStyle "!=" "Off"}}
-
-    {{#match headerStyle "Highlight"}}
-        {{> "components/header-content"}}
-    {{else match headerStyle "Magazine"}}
-        {{> "components/header-content"}}
+    {{#match headerStyle "Landing"}}
+        {{> "components/latest-post"}}
     {{else}}
-        {{#match headerStyle "Landing"}}
-            {{> "components/latest-post"}}
-        {{else}}
-            {{> "components/header-content"}}
-        {{/match}}
+        {{> "components/header-content"}}
     {{/match}}
-
 {{/match}}

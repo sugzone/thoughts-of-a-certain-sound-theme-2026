@@ -23,12 +23,11 @@
             <h3 class="gh-card-title is-title">{{title}}</h3>
             {{#if custom_excerpt}}
                 <p class="gh-card-excerpt is-body">{{custom_excerpt}}</p>
-            {{/if}}
-            {{#unless custom_excerpt}}
+            {{else}}
                 {{#if excerpt}}
                     <p class="gh-card-excerpt is-body">{{excerpt}}</p>
                 {{/if}}
-            {{/unless}}
+            {{/if}}
             <footer class="gh-card-meta">
                 {{#unless access}}
                     {{^has visibility="public"}}
