@@ -185,7 +185,7 @@ section.is-body a {
     color: var(--color-link);
 }
 
-a:hover {
+a:is(:hover, :focus) {
     opacity: 0.8;
     text-decoration: underline;
 }
@@ -232,7 +232,7 @@ a:hover {
     outline: none;
 }
 
-.gh-icon-button:hover :is(svg, span) {
+.gh-icon-button:is(:hover, :focus) :is(svg, span) {
     opacity: 0.8;
 }
 
@@ -264,12 +264,12 @@ a:hover {
     box-shadow: 0 0 0 1px red;
 }
 
-.gh-form:hover {
+.gh-form:is(:hover, :focus) {
     background-color: rgb(0 0 0 / 0.065);
 }
 
-.has-light-text .gh-form:hover,
-.gh-footer.has-accent-color .gh-form:hover {
+.has-light-text .gh-form:is(:hover, :focus),
+.gh-footer.has-accent-color .gh-form:is(:hover, :focus) {
     background-color: rgb(255 255 255 / 0.15);
 }
 
@@ -1493,7 +1493,7 @@ li:nth-child(n+2) .gh-header-text-recent-post-list {
     gap: 20px;
 }
 
-.gh-card-link:hover {
+.gh-card-link:is(:hover, :focus) {
     opacity: 1;
 }
 
@@ -1531,7 +1531,7 @@ li:nth-child(n+2) .gh-header-text-recent-post-list {
     line-height: 1.3;
 }
 
-.gh-card-link:hover .gh-card-title {
+.gh-card-link:is(:hover, :focus) .gh-card-title {
     opacity: 0.8;
 }
 
@@ -2485,7 +2485,7 @@ li:nth-child(n+2) .gh-header-text-recent-post-list {
     gap: 4px 12px;
 }
 
-.gh-recommendations .recommendation a:hover {
+.gh-recommendations .recommendation a:is(:hover, :focus) {
     opacity: 1;
 }
 
@@ -2502,7 +2502,7 @@ li:nth-child(n+2) .gh-header-text-recent-post-list {
     letter-spacing: -0.009em;
 }
 
-.gh-recommendations .recommendation a:hover .recommendation-title {
+.gh-recommendations .recommendation a:is(:hover, :focus) .recommendation-title {
     opacity: 0.8;
 }
 
@@ -2548,7 +2548,7 @@ li:nth-child(n+2) .gh-header-text-recent-post-list {
     width: 12px;
 }
 
-.gh-recommendations button:hover {
+.gh-recommendations button:is(:hover, :focus) {
     opacity: 0.8;
 }
 
@@ -2927,8 +2927,8 @@ unless a heading is the very first element in the post content */
     cursor: pointer;
 }
 
-.kg-image-card a:hover,
-.kg-gallery-image a:hover {
+.kg-image-card a:is(:hover, :focus),
+.kg-gallery-image a:is(:hover, :focus) {
     opacity: 1 !important;
 }
 
@@ -3000,12 +3000,12 @@ blockquote.kg-blockquote-alt {
     border-radius: 0.25em !important;
 }
 
-.kg-bookmark-card .kg-bookmark-container:hover {
+.kg-bookmark-card .kg-bookmark-container:is(:hover, :focus) {
     opacity: 1;
 }
 
 .kg-bookmark-card a.kg-bookmark-container,
-.kg-bookmark-card a.kg-bookmark-container:hover {
+.kg-bookmark-card a.kg-bookmark-container:is(:hover, :focus) {
     background: var(--background-color) !important;
     color: var(--color-darker-gray) !important;
 }
@@ -3716,8 +3716,7 @@ body[class*=" gh-font-heading"]:not(.gh-font-heading-fira-sans):not(.gh-font-hea
     transition: opacity 0.2s;
 }
 
-.pswp__button:focus,
-.pswp__button:hover {
+.pswp__button:is(:hover, :focus) {
     opacity: 1;
 }
 
@@ -4061,7 +4060,7 @@ body[class*=" gh-font-heading"]:not(.gh-font-heading-fira-sans):not(.gh-font-hea
     color: rgba(255, 255, 255, 0.85);
 }
 
-.has-light-text .gh-button-share:hover {
+.has-light-text .gh-button-share:is(:hover, :focus) {
     border-color: rgba(255, 255, 255, 0.85);
 }
 
@@ -4079,6 +4078,6 @@ body[class*=" gh-font-heading"]:not(.gh-font-heading-fira-sans):not(.gh-font-hea
     font-style: italic;
 }
 
-.gh-button-share:hover {
+.gh-button-share:is(:hover, :focus) {
     border-color: rgba(0, 0, 0, 0.5);
 }
