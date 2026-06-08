@@ -3,7 +3,7 @@
     {{#if prev}}
         <a class="gh-pagination-item" href="{{page_url prev}}" aria-label="Go to page {{prev}}">← Newer</a>
     {{else}}
-        <span class="gh-pagination-item is-disabled" aria-hidden="true">← Newer</span>
+        <span class="gh-pagination-item is-disabled" aria-disabled="true">← Newer</span>
     {{/if}}
 
     <span class="gh-pagination-item">Page {{page}} of {{pages}}</span>
@@ -11,7 +11,7 @@
     {{#if next}}
         <a class="gh-pagination-item" href="{{page_url next}}" aria-label="Go to page {{next}}">Older →</a>
     {{else}}
-        <span class="gh-pagination-item is-disabled" aria-hidden="true">Older →</span>
+        <span class="gh-pagination-item is-disabled" aria-disabled="true">Older →</span>
     {{/if}}
 
 </nav>

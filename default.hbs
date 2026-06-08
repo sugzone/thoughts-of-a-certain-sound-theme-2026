@@ -50,6 +50,7 @@
 <body class="{{body_class}} has-{{#match @custom.title_font "Elegant serif"}}serif{{else match @custom.title_font "Consistent mono"}}mono{{else}}sans{{/match}}-title has-{{#match @custom.body_font "Elegant serif"}}serif{{else}}sans{{/match}}-body">
 
 <div class="gh-viewport">
+    <a class="gh-skip-link" href="#gh-main-content">Skip to main content</a>
 
     <div class="gh-vertical-line">
         {{> "svg/squigline"}}
@@ -57,7 +58,7 @@
     
     {{> "components/navigation" navigationLayout=@custom.navigation_layout}}
 
-    <div class="gh-body-outer">
+    <div class="gh-body-outer" id="gh-main-content">
         {{{body}}}
     </div>
     

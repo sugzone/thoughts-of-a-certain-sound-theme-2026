@@ -31,7 +31,7 @@
             <footer class="gh-card-meta">
                 {{#unless access}}
                     {{^has visibility="public"}}
-                        {{> "icons/lock"}}
+                        {{> "icons/lock"}}<span class="sr-only">Members only</span>
                     {{/has}}
                 {{/unless}}<!--
              -->{{#if @custom.show_author}}
