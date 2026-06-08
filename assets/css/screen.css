@@ -564,6 +564,12 @@ body[class*=" gh-font-heading"]:not(.gh-font-heading-fira-sans):not(.gh-font-hea
     font-weight: 500;
 }
 
+@media ( max-width: 767px ) {
+    .gh-navigation-logo .fallback-text {
+        margin: 0 0 calc(1vh + 0.4em) 6vw;
+    }
+}
+
 .gh-navigation-menu {
     display: flex;
     gap: 24px;
