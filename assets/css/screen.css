@@ -1279,6 +1279,7 @@ li:nth-child(n+2) .gh-header-text-recent-post-list {
 @media (max-width: 767px) {
     .gh-latest-post-inner-body {
         flex-direction: column-reverse;
+        gap: 0;
     }
 }
 
