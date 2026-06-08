@@ -6,7 +6,9 @@
                 {{#if @site.logo}}
                     <img src="{{@site.logo}}" alt="{{@site.title}}">
                 {{else}}
-                    {{@site.title}}
+                    <span class="fallback-text">
+                        {{@site.title}}
+                    </span>
                 {{/if}}
             </a>
             {{> "search-toggle"}}
