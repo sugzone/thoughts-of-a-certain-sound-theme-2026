@@ -1,3 +1,10 @@
+/* Compensate for scaleY(1.4) transform not affecting document flow */
+(function () {
+    document.querySelectorAll('.gh-header-text-tall-upper').forEach(function (el) {
+        el.style.paddingBottom = (el.offsetHeight * 0.4) + 'px';
+    });
+})();
+
 /* Mobile menu burger toggle */
 (function () {
     const navigation = document.querySelector('.gh-navigation');

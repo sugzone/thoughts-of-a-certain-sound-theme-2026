@@ -1138,15 +1138,7 @@ Search                         LOGO                    Login Subscribe
     text-transform: uppercase;
     transform: scaleY(1.4);
     transform-origin: top;
-    margin: 1vh 0 calc(1vh + 0.4em) 0;
-    /* padding-bottom: 1vh; */
-    padding-bottom: 1em;
-}
-
-@media (max-width: 767px) {
-    .gh-header-text-tall-upper  {
-        padding-bottom: 0;
-    }
+    margin: 1vh 0;
 }
 
 .gh-header-text-tag-list-item {
@@ -1253,14 +1245,14 @@ li:nth-child(n+2) .gh-header-text-recent-post-list {
 }
 
 .gh-latest-post-left {
-    /* flex: 1; */
+    flex: 1;
     display: flex;
     flex-direction: column;
     /* gap: 1vh; */
 }
 
 .gh-latest-post-right {
-    flex: 2;
+    flex: 1;
     display: flex;
     flex-direction: column;
     /* gap: 16px; */
