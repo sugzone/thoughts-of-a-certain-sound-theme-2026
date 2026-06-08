@@ -64,7 +64,7 @@ production stylesheet in assets/built/screen.css
 
 :root {
     --color-white: #fff;
-    --color-lighter-gray: rgb(0 0 0 / 0.05);
+    --color-lighter-gray: #0000000d;
     --color-light-gray: #e6e6e6;
     --color-mid-gray: #ccc;
     --color-dark-gray: #444;
@@ -92,6 +92,7 @@ production stylesheet in assets/built/screen.css
     --container-gap: clamp(24px, 1.7032rem + 1.9355vw, 48px);
     --grid-gap: 42px;
     --viewport-margin-left: 5vw;
+    --content-font-size: 1.9rem;
 }
 
 :root.has-light-text,
@@ -161,7 +162,7 @@ sub, sup {
 
 body {
     font-family: var(--gh-font-body, var(--font-sans));
-    font-size: 1.6rem;
+    font-size: var(--content-font-size);
     background-color: var(--background-color);
     color: var(--color-primary-text);
 }
@@ -434,9 +435,19 @@ body[class*=" gh-font-heading"]:not(.gh-font-heading-fira-sans):not(.gh-font-hea
     top: 0;
 }
 
+.gh-viewport:not(:has(.gh-navigation-logo img)) .gh-vertical-line {
+    top: 1vh;
+}
+
+@media (max-width: 767px) {
+    .gh-viewport:not(:has(.gh-navigation-logo img)) .gh-vertical-line {
+        top: 17vh;
+    }
+}
+
 .gh-vertical-line {
     position: absolute;
-    top: 0;
+    top: 10vh;
     left: 1vw;
     width: 84px;
     bottom: 0;
@@ -518,7 +529,7 @@ body[class*=" gh-font-heading"]:not(.gh-font-heading-fira-sans):not(.gh-font-hea
 /* ---------------------------------------------------------- */
 
 .gh-navigation {
-    height: 100px;
+    /* height: 100px; */
     font-size: large;
     font-weight: 500;
     background-color: var(--background-color);
@@ -548,18 +559,24 @@ body[class*=" gh-font-heading"]:not(.gh-font-heading-fira-sans):not(.gh-font-hea
     font-weight: 725;
     letter-spacing: -0.015em;
     white-space: nowrap;
+    height: fit-content;
+}
+
+.gh-navigation-logo:has(img) {
+    height: 160px;
 }
 
 .gh-navigation-logo img {
-    max-height: 40px;
+    height: inherit;
 }
 
 .gh-navigation-logo .fallback-text {
     display: inline-block;
     font-family: var(--font-aujournuit);
-    transform: scaleY(1.4);
+    transform: scaleY(1.6);
     transform-origin: top;
-    margin: 0 0 calc(1vh + 0.4em) 0;
+    margin: 0 0 calc(1vh + 0.6em) 0;
+    padding-bottom: 1vh;
     font-size: 5rem;
     font-weight: 500;
 }
@@ -590,6 +607,7 @@ body[class*=" gh-font-heading"]:not(.gh-font-heading-fira-sans):not(.gh-font-hea
     font-family: var(--font-nav);
     font-weight: 700;
     font-style: italic;
+    font-size: 2rem;
     text-transform: lowercase;
 }
 
@@ -742,6 +760,7 @@ Search                         LOGO                    Login Subscribe
 .gh-navigation.is-stacked {
     position: relative;
     height: auto;
+    padding-left: 0;
 }
 
 .gh-navigation.is-stacked .gh-navigation-inner {
@@ -749,6 +768,7 @@ Search                         LOGO                    Login Subscribe
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+    margin-left: 0;
 }
 
 .gh-navigation.is-stacked .gh-navigation-brand {
@@ -2712,7 +2732,7 @@ created within the Ghost editor. The main content handles
 headings, text, images and lists. We deal with cards lower down. */
 
 .gh-content {
-    font-size: var(--content-font-size, 1.7rem);
+    font-size: var(--content-font-size);
     letter-spacing: -0.01em;
 }
 

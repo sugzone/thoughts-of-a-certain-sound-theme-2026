@@ -1,7 +1,10 @@
-/* Compensate for scaleY(1.4) transform not affecting document flow */
+/* Compensate for scaleY transforms not affecting document flow */
 (function () {
-    document.querySelectorAll('.gh-header-text-tall-upper').forEach(function (el) {
+    document.querySelectorAll('.gh-header-text-tall-upper, .gh-article-title').forEach(function (el) {
         el.style.paddingBottom = (el.offsetHeight * 0.4) + 'px';
+    });
+    document.querySelectorAll('.gh-navigation-logo .fallback-text').forEach(function (el) {
+        el.style.paddingBottom = (el.offsetHeight * 0.6) + 'px';
     });
 })();
 
