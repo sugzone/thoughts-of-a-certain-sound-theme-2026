@@ -436,7 +436,7 @@ body[class*=" gh-font-heading"]:not(.gh-font-heading-fira-sans):not(.gh-font-hea
 }
 
 .gh-viewport:not(:has(.gh-navigation-logo img)) .gh-vertical-line {
-    top: 1vh;
+    top: 5vh;
 }
 
 @media (max-width: 767px) {
@@ -447,7 +447,7 @@ body[class*=" gh-font-heading"]:not(.gh-font-heading-fira-sans):not(.gh-font-hea
 
 .gh-vertical-line {
     position: absolute;
-    top: 10vh;
+    top: 13vh;
     left: 1vw;
     width: 84px;
     bottom: 0;
@@ -455,6 +455,12 @@ body[class*=" gh-font-heading"]:not(.gh-font-heading-fira-sans):not(.gh-font-hea
     z-index: 1;
     pointer-events: none;
     /* margin: -5vh; */
+}
+
+@media (max-width: 767px) {
+    .gh-vertical-line {
+        top: 19vh;
+    }
 }
 
 .gh-viewport {
@@ -575,7 +581,7 @@ body[class*=" gh-font-heading"]:not(.gh-font-heading-fira-sans):not(.gh-font-hea
     font-family: var(--font-aujournuit);
     transform: scaleY(1.6);
     transform-origin: top;
-    margin: 2vh 0 2vh 1vh;
+    margin: 0 0 2vh 1vh;
     padding: 1vh 0;
     font-size: 5rem;
     font-weight: 500;
@@ -761,6 +767,7 @@ Search                         LOGO                    Login Subscribe
     position: relative;
     height: auto;
     padding-left: 0;
+    padding-top: 1vh;
 }
 
 .gh-navigation.is-stacked .gh-navigation-inner {
@@ -792,8 +799,8 @@ Search                         LOGO                    Login Subscribe
 
     .gh-navigation.is-stacked .gh-navigation-brand {
         display: flex;
-        align-items: center;
-        height: 80px;
+        align-items: flex-start;
+        height: auto;
     }
 
     .gh-navigation.is-stacked .gh-navigation-menu {
