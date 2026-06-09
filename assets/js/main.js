@@ -3,6 +3,12 @@
     document.querySelectorAll('.gh-header-text-tall-upper, .gh-article-title').forEach(function (el) {
         el.style.paddingBottom = (el.offsetHeight * 0.4) + 'px';
     });
+    document.querySelectorAll('.gh-header-text-recent-post-list').forEach(function (el) {
+        el.style.paddingBottom = (el.offsetHeight * 0.2) + 'px';
+    });
+    document.querySelectorAll('.gh-header-text-serif, .gh-styled-section-header-text-serif').forEach(function (el) {
+        el.style.paddingBottom = (el.offsetHeight * 0.1) + 'px';
+    });
     document.querySelectorAll('.gh-navigation-logo .fallback-text').forEach(function (el) {
         el.style.paddingBottom = (el.offsetHeight * 0.6) + 'px';
     });

@@ -2602,6 +2602,7 @@ li:nth-child(n+2) .gh-header-text-recent-post-list {
 }
 
 .gh-article-tag {
+    margin: 0 0 0 auto;
     /* margin-bottom: 12px; */
     /* font-size: 1.3rem; */
     /* font-weight: 500; */
