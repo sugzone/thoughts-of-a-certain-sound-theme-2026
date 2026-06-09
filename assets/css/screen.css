@@ -457,11 +457,11 @@ body[class*=" gh-font-heading"]:not(.gh-font-heading-fira-sans):not(.gh-font-hea
     /* margin: -5vh; */
 }
 
-@media (max-width: 767px) {
+/* @media (max-width: 767px) {
     .gh-vertical-line {
         top: 19vh;
     }
-}
+} */
 
 .gh-viewport {
     position: relative;
