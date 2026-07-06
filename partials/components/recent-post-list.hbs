@@ -28,8 +28,14 @@
                         {{/if}}
                     {{/if}}
 
+                    {{#unless @first}}
+                        <div class="gh-recent-post-list-chevron">{{> "svg/chevron-right"}}</div>
+                    {{/unless}}
+
                     <div class="gh-recent-post-list-content">
-                        <a class="is-title gh-header-text-recent-post-list" href="{{url}}" role="heading" aria-level="4">{{title}}</a>
+                        <a class="is-title gh-header-text-recent-post-list" href="{{url}}" role="heading" aria-level="4">
+                            {{title}}
+                        </a>
                         <time class="gh-text-post-attributes" datetime="{{date format="M/DD/YYYY"}}">
                             {{date format="M/DD/YYYY"}}
                         </time>

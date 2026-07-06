@@ -1387,6 +1387,7 @@ li:nth-child(n+2) .gh-header-text-recent-post-list {
     width: 100%;
     /* align-items: flex-start; */
     gap: 1vw;
+    /* margin-top: 1vh; */
     /* justify-content: space-between; */
 }
 
@@ -1414,6 +1415,19 @@ li:nth-child(n+2) .gh-header-text-recent-post-list {
     /* object-fit: cover; */
     margin-bottom: 2vh;
     /* aspect-ratio: 5/3; */
+}
+
+.gh-recent-post-list-chevron {
+    flex: 0 0 auto;
+    margin: 0;
+    padding: 0;
+}
+
+.gh-recent-post-list-chevron svg {
+    width: 14px;
+    height: 21px;
+    stroke-width: 1;
+    /* margin-top: 1vh; */
 }
 
 .gh-recent-post-list-divider {
