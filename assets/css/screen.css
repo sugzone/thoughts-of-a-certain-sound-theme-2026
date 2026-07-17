@@ -1168,6 +1168,11 @@ Search                         LOGO                    Login Subscribe
     margin: 1vh 0;
 }
 
+h1.tag-title {
+    grid-column: 2 / span 12;
+    padding-left: 1vw;
+}
+
 .gh-header-text-tag-list-item {
     font-size: large;
 }
